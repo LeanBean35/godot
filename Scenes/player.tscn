@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl5gs0alyi6pr"]
+
+[ext_resource type="Texture2D" uid="uid://clkxyqysw1yhn" path="res://Assets/2 GraveRobber/GraveRobber_idle.png" id="1_7qh1p"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_c07ay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1dvp"]
+atlas = ExtResource("1_7qh1p")
+region = Rect2(0, 0, 46, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lq7qs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1dvp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6yls"]
+radius = 11.2976
+height = 26.8299
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c07ay")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -24)
+sprite_frames = SubResource("SpriteFrames_lq7qs")
+animation = &"idle"
+frame_progress = 0.0623589
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -15)
+rotation = 1.57643
+scale = Vector2(1.32815, 0.503798)
+shape = SubResource("CapsuleShape2D_k6yls")
